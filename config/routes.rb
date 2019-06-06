@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, :projects, :tasks
+      post '/auth', to: "auth#create"
+      # get '/auth', to: "auth#test"
+
     end
   end
 end
