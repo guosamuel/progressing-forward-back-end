@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, :projects, :tasks
       post '/auth', to: "auth#create"
-      # get '/auth', to: "auth#test"
+      # get '/auth', to: "auth#create"
 
     end
   end
