@@ -16,28 +16,31 @@ User.create(username: "Hodor", password: "234", first_name: "Hodor", last_name: 
 
 
 #seed data for projects
-Project.create(title: "Mod 1 Project", description: "QUIZZIA", due_date: Faker::Date.forward(9001))
-Project.create(title: "Mod 2 Project", description: "DUNGEONS AND DRAGONS MEETUP FINDER", due_date: Faker::Date.forward(9001))
-Project.create(title: "Mod 3 Project", description: "SPACE X COOKIE MONSTER", due_date: Faker::Date.forward(9001))
-Project.create(title: "Mod 4 Project", description: "RATE MY INSTRUCTOR", due_date: Faker::Date.forward(9001))
-Project.create(title: "Mod 5 Project", description: "PROGRESSING FORWARD", due_date: Faker::Date.forward(9001))
+Project.create(title: "Mod 1 Project", description: "QUIZZIA", due_date: Faker::Date.forward(9001), percentage: 0)
+Project.create(title: "Mod 2 Project", description: "DUNGEONS AND DRAGONS MEETUP FINDER", due_date: Faker::Date.forward(9001), percentage: 0)
+Project.create(title: "Mod 3 Project", description: "SPACE X COOKIE MONSTER", due_date: Faker::Date.forward(9001), percentage: 50)
+Project.create(title: "Mod 4 Project", description: "RATE MY INSTRUCTOR", due_date: Faker::Date.forward(9001), percentage: 75)
+Project.create(title: "Mod 5 Project", description: "PROGRESSING FORWARD", due_date: Faker::Date.forward(9001), percentage: 100)
 
 #seed data for user_projects
 UserProject.create(user_id: 1, project_id: 1)
 UserProject.create(user_id: 1, project_id: 2)
+UserProject.create(user_id: 1, project_id: 3)
+UserProject.create(user_id: 1, project_id: 4)
+UserProject.create(user_id: 1, project_id: 5)
 UserProject.create(user_id: 2, project_id: 1)
 UserProject.create(user_id: 2, project_id: 3)
 
 #seed data for tasks
-Task.create(project_id: 1, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 1, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 2, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 2, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 3, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 3, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 4, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 4, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 5, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000))
-Task.create(project_id: 5, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000))
+Task.create(project_id: 1, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000), percentage: 0)
+Task.create(project_id: 1, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000), percentage: 0)
+Task.create(project_id: 2, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000), percentage: 0)
+Task.create(project_id: 2, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000), percentage: 0)
+Task.create(project_id: 3, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000), percentage: Faker::Number.between(1, 100))
+Task.create(project_id: 3, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000), percentage: Faker::Number.between(1, 100))
+Task.create(project_id: 4, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000), percentage: Faker::Number.between(1, 100))
+Task.create(project_id: 4, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000), percentage: Faker::Number.between(1, 100))
+Task.create(project_id: 5, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000), percentage: 100)
+Task.create(project_id: 5, title: "FRONT END", description: "Figure out how React work", due_date: Faker::Date.forward(9000), percentage: 100)
 
 puts 'DONE RUNNING SEED FILE'
