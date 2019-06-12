@@ -15,7 +15,7 @@ class Api::V1::ProjectsController < ApplicationController
       UserProject.create(user_id: params[:user_id], project_id: new_project.id)
       render json: new_project
     else
-      render json: {error: "Please fill out all input fields"}
+      render json: {error: "Please fill out all input fields."}
     end
   end
 
