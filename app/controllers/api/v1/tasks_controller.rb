@@ -23,11 +23,13 @@ class Api::V1::TasksController < ApplicationController
     day = params[:date][3..4]
     year = params[:date][6..9]
     formatted_date = "#{year}-#{month}-#{day}"
-    if Task.update(params[:task_id], title: params[:title], description: params[:description], due_date: formatted_date, percentage: params[:percentage])
+    # byebug
+    if Task.update(params[:task_id], title: params[:title], description: params[:description], due_date: formatted_date, percentage: params[:percentage]).valid?
       Task.update(params[:task_id], title: params[:title], description: params[:description], due_date: formatted_date, percentage: params[:percentage])
       updated_task = Task.find(params[:task_id])
-      render json: updated_task
+      render json: {updated_task: updated_task, success: "You've successfully updated the task."}
     else
       render json: {error: "Please fill out all input fields."}
+    end
   end
 end
