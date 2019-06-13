@@ -12,7 +12,15 @@ class Api::V1::TasksController < ApplicationController
     formatted_date = "#{year}-#{month}-#{day}"
     new_task = Task.new(project_id: params[:project_id], title: params[:title], description: params[:description], due_date: formatted_date, percentage: 0)
     if new_task.save
-      render json: new_task
+      project = Project.find(params[:project_id])
+      sum = 0
+      project.tasks.each do |task|
+        sum += task.percentage
+      end
+      average = sum/project.tasks.length
+      Project.update(project.id, percentage: average)
+      updated_project = Project.find(project.id)
+      render json: {new_task: new_task, updated_project: ProjectSerializer.new(updated_project)}
     else
       render json: {error: "Please fill out all input fields."}
     end
