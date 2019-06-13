@@ -27,7 +27,17 @@ class Api::V1::TasksController < ApplicationController
     if Task.update(params[:task_id], title: params[:title], description: params[:description], due_date: formatted_date, percentage: params[:percentage]).valid?
       Task.update(params[:task_id], title: params[:title], description: params[:description], due_date: formatted_date, percentage: params[:percentage])
       updated_task = Task.find(params[:task_id])
-      render json: {updated_task: updated_task, success: "You've successfully updated the task."}
+
+      project = Project.find(updated_task.project_id)
+      sum = 0
+      project.tasks.each do |task|
+        sum += task.percentage
+      end
+      average = sum/project.tasks.length
+      Project.update(project.id, percentage: average)
+      updated_project = Project.find(project.id)
+      # byebug
+      render json: {updated_task: updated_task, updated_project: ProjectSerializer.new(updated_project), success: "You've successfully updated the task."}
     else
       render json: {error: "Please fill out all input fields."}
     end
