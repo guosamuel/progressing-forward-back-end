@@ -14,7 +14,8 @@ puts 'RUNNING SEED FILE'
 User.create(username: "Derpy", password: "123", first_name: "Sam", last_name: "Guo")
 User.create(username: "Hodor", password: "234", first_name: "Hodor", last_name: "Hodor")
 User.create(username: "Asuna", password: "SAO", first_name: "Asuna", last_name: "Yuuki")
-
+User.create(username: "Araragi", password: "123", first_name: "Araragi", last_name: "Something")
+User.create(username: "Sploosh", password: "DND", first_name: "Cal", last_name: "Kaj")
 
 #seed data for projects
 Project.create(title: "Mod 1 Project", description: "QUIZZIA", due_date: Faker::Date.forward(9001), percentage: 0, project_lead_id: 1)
@@ -31,6 +32,9 @@ UserProject.create(user_id: 1, project_id: 4)
 UserProject.create(user_id: 1, project_id: 5)
 UserProject.create(user_id: 2, project_id: 1)
 UserProject.create(user_id: 2, project_id: 3)
+UserProject.create(user_id: 3, project_id: 1)
+UserProject.create(user_id: 4, project_id: 1)
+UserProject.create(user_id: 5, project_id: 1)
 
 #seed data for tasks
 Task.create(project_id: 1, title: "BACK END", description: "Figure out how Ruby on Rails work", due_date: Faker::Date.forward(9000), percentage: 0)
