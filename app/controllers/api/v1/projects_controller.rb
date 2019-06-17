@@ -10,7 +10,7 @@ class Api::V1::ProjectsController < ApplicationController
     day = params[:date][3..4]
     year = params[:date][6..9]
     formatted_date = "#{year}-#{month}-#{day}"
-    new_project = Project.new(title: params[:title], description: params[:description], due_date: formatted_date, percentage: 0)
+    new_project = Project.new(title: params[:title], description: params[:description], due_date: formatted_date, percentage: 0, project_lead_id: params[:user_id])
     if new_project.save
       UserProject.create(user_id: params[:user_id], project_id: new_project.id)
       render json: new_project
