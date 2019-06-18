@@ -1,9 +1,10 @@
 class Api::V1::ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all.filter{ |project| project.users.include?(current_user) }
+    # @projects = Project.all.filter{ |project| project.users.include?(current_user) }
     # render json: @projects
-    render json: Project.all
+
+    render json: current_user.projects
   end
 
   def create
