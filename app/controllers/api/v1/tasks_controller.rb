@@ -22,7 +22,7 @@ class Api::V1::TasksController < ApplicationController
       updated_project = Project.find(project.id)
       render json: {new_task: new_task, updated_project: ProjectSerializer.new(updated_project)}
     else
-      render json: {error: "Please fill out all input fields."}
+      render json: {error: "Please fill out all input fields and/or please select the date from the pop-up calender."}
     end
   end
 
@@ -47,7 +47,7 @@ class Api::V1::TasksController < ApplicationController
       # byebug
       render json: {updated_task: updated_task, updated_project: ProjectSerializer.new(updated_project), success: "You've successfully updated the task."}
     else
-      render json: {error: "Please fill out all input fields."}
+      render json: {error: "Please fill out all input fields and/or please select the date from the pop-up calender."}
     end
   end
 end
