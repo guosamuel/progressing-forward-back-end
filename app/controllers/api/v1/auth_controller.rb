@@ -13,4 +13,13 @@ class Api::V1::AuthController < ApplicationController
     end
   end
 
+  def show
+    if logged_in
+      render json: {user: UserSerializer.new(current_user)}
+      # byebug
+    else
+      render json: {error: "Please log in"}
+    end
+
+  end
 end
