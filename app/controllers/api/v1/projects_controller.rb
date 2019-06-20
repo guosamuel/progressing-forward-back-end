@@ -21,4 +21,18 @@ class Api::V1::ProjectsController < ApplicationController
     end
   end
 
+  def update
+    month = params[:date][0..1]
+    day = params[:date][3..4]
+    year = params[:date][6..9]
+    formatted_date = "#{year}-#{month}-#{day}"
+    # byebug
+    if Project.update(params[:project_id], title: params[:title], description: params[:description], due_date: formatted_date).valid?
+      Project.update(params[:project_id], title: params[:title], description: params[:description], due_date: formatted_date)
+      updated_project = Project.find(params[:project_id])
+      render json: {updated_project: ProjectSerializer.new(updated_project), success: "You've successfully updated the project."}
+    else
+      render json: {error: "Please fill out all input fields and/or please select the date from the pop-up calender."}
+    end
+  end
 end
