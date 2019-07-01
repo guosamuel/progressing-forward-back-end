@@ -25,7 +25,7 @@ Auto Filter - The project will be automatically rendered into the appropriate co
 ## Installation
 1. Fork and clone this repository into your local computer.
 2. Navigate to the directory where it was cloned and run the following command: `bundle install`
-3. Run the following command: `rails db:migrate`
+3. When the `bundle install` command completes, run the following command: `rails db:migrate`
 
 ## How To Use
 To run the back-end, run the following command: `rails s -p 3000`
