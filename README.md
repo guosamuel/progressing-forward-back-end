@@ -33,4 +33,4 @@ To run the back-end, run the following command: `rails s -p 3000`
 ***Note:*** For the back-end, the port needs to be assigned to port 3000 because port 3000 is the default port the front-end will refer to.
 
 ## Front-End Installation
-After successfully installing the back-end, please refer to the [Progressing Forward Front End repository](https://github.com/guosamuel/rateMyInstructor-frontend) for instructions on how to install the front-end as well as using the application.
+After successfully installing the back-end, please refer to the [Progressing Forward Front End repository](https://github.com/guosamuel/progressing-forward-front-end) for instructions on how to install the front-end as well as using the application.
