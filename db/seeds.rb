@@ -11,7 +11,7 @@ puts 'RUNNING SEED FILE'
 
 
 #seed data for Users
-User.create(username: "Derpy", password: "123", first_name: "Sam", last_name: "Guo")
+User.create(username: "Guest", password: "123", first_name: "Sam", last_name: "Guo")
 User.create(username: "Hodor", password: "123", first_name: "Hodor", last_name: "Hodor")
 User.create(username: "Asuna", password: "123", first_name: "Asuna", last_name: "Yuuki")
 User.create(username: "Araragi", password: "123", first_name: "Araragi", last_name: "Something")
