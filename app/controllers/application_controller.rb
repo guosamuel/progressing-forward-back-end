@@ -29,10 +29,13 @@ class ApplicationController < ActionController::API #requests can come from anyw
   def logged_in
     !!current_user
   end
-  #
-  # def authorized
-  #   render json: {error: "Unauthorized"} unless logged_in
-  # end
+
+  def formatted_date
+    month = params[:date][0..1]
+    day = params[:date][3..4]
+    year = params[:date][6..9]
+    return "#{year}-#{month}-#{day}"
+  end
 
 end
 
